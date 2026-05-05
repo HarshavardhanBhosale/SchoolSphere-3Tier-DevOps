@@ -1,0 +1,8 @@
+FROM mysql:latest
+COPY ./school.sql /docker-entrypoint-initdb.d/
+ENV MYSQL_ROOT_PASSWORD=mysql123
+ENV MYSQL_DATABASE=school
+EXPOSE 3306
+
+# Add this to see what's happening
+RUN chmod -R 755 /docker-entrypoint-initdb.d/
